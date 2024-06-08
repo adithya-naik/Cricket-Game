@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Game</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
+</head>
+
+<body>
+    <main>
+        <h1>Cricket Game 🏏</h1>
+        
+        <button class="button" onclick="
+        let comChoice =  generateComChoice();
+        result= getResult('Bat',comChoice);
+        showResult('Bat',comChoice,result);
+        ">    <img class="images" src="images/bat.png" alt="Bat Image" title="Bat"></button>
+
+
+
+        <button class="button"  onclick="
+        comChoice =  generateComChoice();
+        result= getResult('Ball',comChoice);
+        showResult('Ball',comChoice,result);
+        ">    <img class="images" src="images/ball.png" alt="Ball Image" title="Ball"></button>
+
+
+
+        <button class="button" onclick="
+        comChoice =  generateComChoice();
+        result= getResult('Wicket',comChoice);
+        showResult('Wicket',comChoice,result);
+        ">    <img class="images" src="images/stump.png" alt="Wicket Image" title="Wicket"></button>
+
+
+        <h3 id="user"></h3>
+        <h3 id="comp"></h3>
+        <h3 id="result"></h3>
+        <h3 id="score"></h3>
+
+        <br>
+        <button class="Reset" onclick="localStorage.clear()
+            score = {
+                win:0,
+                lost:0,
+                tie:0,
+            }
+            document.querySelector('#user').innerText = '';
+            document.querySelector('#comp').innerText = '';
+            document.querySelector('#result').innerText = '';
+            document.querySelector('#score').innerText = 'Play Again !!🔄';
+        " >New Game ↻</button>
+    </main>
+    <footer>
+        <p>
+            <div class="features">FEATURES :</div>
+           <span class="rule">1.Score Will be saved Even User refreshes the page</span>  <br>
+           <span class="rule">2.Reset Button Can be used to Start a New Game</span> 
+        </p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
