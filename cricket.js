@@ -6,11 +6,6 @@ function generateComChoice() {
     else return "Wicket";
   }
 
-
-
-
-
-
 function getResult(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
     score.tie++;
@@ -30,21 +25,14 @@ function getResult(userChoice, computerChoice) {
   }
 }
 
-
-
-
-
 function showResult(uchoice, cchoice, res) {
     localStorage.setItem("Score", JSON.stringify(score));
-    alert(
-        `You Chose ${uchoice}.\nComputer Chose ${cchoice}.\n${res} \n${localScore()}`
-    );
-  }
 
-  
-
-
-
+    document.querySelector('#user').innerText = `You Chose ${uchoice}`;
+    document.querySelector('#comp').innerText = `Computer Chose ${cchoice}`;
+    document.querySelector('#result').innerText = res;
+    document.querySelector('#score').innerText =localScore();
+}
 
 let gotScore = JSON.parse(localStorage.getItem('Score'))
 let score;
@@ -63,36 +51,4 @@ function localScore(){
   let localScore = JSON.parse(localStorage.getItem('Score'))
     return `Won: ${localScore.win},Lost : ${localScore.lost},Tie : ${localScore.tie}`
 }
-
-
-// let text = document.querySelector(".text");
-// let semi_final = localStorage.getItem("Score");
-// let final = JSON.parse("Score");
-// text.set;
-
-// let strScore = localStorage.getItem("Score");
-// let score;
-// resetScore();
-
-
-
-
-
-
-// function resetScore(strScore) {
-//   score = strScore
-//     ? JSON.parse(strScore)
-//     : {
-//         win: 0,
-//         lost: 0,
-//         tie: 0,
-//       };
-//   score.showScore = function () {
-//     return `\nWon: ${score.win}\nLost: ${score.lost}\nTie: ${score.tie}`;
-//   };
-// }
-
-
-
-
 
