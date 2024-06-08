@@ -13,19 +13,19 @@ function generateComChoice() {
 
 function getResult(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
-    // score.tie++;
+    score.tie++;
     return "Its Tied";
   } else if (userChoice == "Bat" && computerChoice == "Ball") {
-    // score.win++;
+    score.win++;
     return "User Won";
   } else if (userChoice == "Ball" && computerChoice == "Wicket") {
-    // score.win++;
+    score.win++;
     return "User Won";
   } else if (userChoice == "Wicket" && computerChoice == "Bat") {
-    // score.win++;
+    score.win++;
     return "User Won";
   } else {
-    // score.lost++;
+    score.lost++;
     return "Computer Won";
   }
 }
@@ -35,11 +35,9 @@ function getResult(userChoice, computerChoice) {
 
 
 function showResult(uchoice, cchoice, res) {
-    // console.log(score);
-    // localStorage.setItem("Score", JSON.stringify(score));
+    localStorage.setItem("Score", JSON.stringify(score));
     alert(
-      `You Chose ${uchoice}.\nComputer Chose ${cchoice}.\n${res}`
-    //   `You Chose ${uchoice}.\nComputer Chose ${cchoice}.\n${res} \n${score.showScore()}`
+        `You Chose ${uchoice}.\nComputer Chose ${cchoice}.\n${res} \n${localScore()}`
     );
   }
 
@@ -48,6 +46,23 @@ function showResult(uchoice, cchoice, res) {
 
 
 
+let gotScore = JSON.parse(localStorage.getItem('Score'))
+let score;
+if(gotScore != undefined){
+  score = gotScore
+}
+else{
+  score ={
+    win : 0,
+    lost : 0,
+    tie : 0,
+  }
+}
+
+function localScore(){
+  let localScore = JSON.parse(localStorage.getItem('Score'))
+    return `Won: ${localScore.win},Lost : ${localScore.lost},Tie : ${localScore.tie}`
+}
 
 
 // let text = document.querySelector(".text");
